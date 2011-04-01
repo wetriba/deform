@@ -26,9 +26,8 @@
       <li class="section first" tal:condition="field.description">
         ${field.description}
       </li>
-
-      <div
-          tal:define="rndr field.renderer;
+      
+      <li tal:define="rndr field.renderer;
                       tmpl field.widget.item_template"
           tal:repeat="f field.children"
           tal:replace="structure
