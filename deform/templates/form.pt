@@ -55,16 +55,17 @@
      function(oid) {
        var options = {
          target: '#' + oid,
-         replaceTarget: true,
-         success: function() {
-           deform.processCallbacks();
-           deform.focusFirstInput();
-         }
+         replaceTarget: true
        };
-       var extra_options = ${field.ajax_options} || {};
-       $('#' + oid).ajaxForm($.extend(options, extra_options));
-     }
-  );
+       var extra_options = ${field.ajax_options};
+       var name;
+       if (extra_options) {
+         for (name in extra_options) {
+           options[name] = extra_options[name];
+         };
+       };
+       $('#' + oid).ajaxForm(options);
+   });
 </script>
 
 </form>
