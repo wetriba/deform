@@ -1,8 +1,10 @@
-<li class="field${field.error and ' ' + (field.widget.error_class or '')}"
+<li tal:attributes="
+        class ' '.join([cls for cls in [
+            field.error and field.widget.error_class,
+            'hidden' if field.widget.hidden else '',
+        ] if cls])"
     title="${field.description}"
-    id="item-${field.oid}"
-    tal:omit-tag="field.widget.hidden"
-    i18n:domain="deform">
+    id="item-${field.oid}">
   <!-- mapping_item -->
   <label tal:condition="not (field.widget.hidden or
                              field.widget.category == 'structural')"

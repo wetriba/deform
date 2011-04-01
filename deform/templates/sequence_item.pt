@@ -1,6 +1,9 @@
-<li tal:attributes="class field.error and field.widget.error_class"
-    tal:omit-tag="field.widget.hidden"
-    title="${field.description}" i18n:domain="deform">
+<li tal:attributes="
+        class ' '.join([cls for cls in [
+            field.error and field.widget.error_class,
+            'hidden' if field.widget.hidden else '',
+        ] if cls])"
+    title="${field.description}">
   <!-- sequence_item -->
 
   <span class="deformClosebutton"
