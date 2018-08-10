@@ -1,1 +1,2 @@
 <p id="${field.oid}">${cstruct}</p>
+<input type="hidden" name="${field.name}" value="${cstruct}" />
